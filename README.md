@@ -21,7 +21,7 @@ model = FruitFlyNet(
   k=16,             # top k cells to be left active in output layer
   lr=1e-4           # learning rate (learning is performed internally)
 )
-x = xp.concatenate([xp.argsort(xp.random.rand(2, 20000)) < i for i in (16, 1)], axis=1)
+x = xp.concatenate([xp.argsort(xp.random.rand(2000, 20000)) < i for i in (15, 1)], axis=1)
 probs = xp.tile(softmax(xp.random.rand(20000)), 2)
 output = model(x, probs)
 ```
