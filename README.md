@@ -41,7 +41,7 @@ from FruitFlyNet import bio_hash_loss
 loss = bio_hash_loss(model.weights, x, probs)
 ```
 
-To enable gpu learning, move to the model to the gpu via `.to` and use cupy instead of numpy.
+To enable gpu learning, move the model to the gpu via `.to` and use cupy instead of numpy.
 
 ```python
 import cupy as xp
