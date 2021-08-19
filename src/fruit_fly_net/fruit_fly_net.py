@@ -29,6 +29,7 @@ class FruitFlyNet():
     self.lr = lr
     self.weights = np.random.rand(output_dim, input_dim)
     self.training = True
+    self.xp = np
 
   def __call__(self, x: Array, probs: Array) -> None:
     """Creates bio-hash. If `self.training` is True, updates weights after
