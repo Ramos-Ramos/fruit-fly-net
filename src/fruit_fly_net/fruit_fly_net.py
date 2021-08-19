@@ -4,12 +4,15 @@ from einops import rearrange, reduce
 
 from typing import Union, Dict
 
-
-Array = Union[np.ndarray, cp._core.core.ndarray]
+try:
+  cp_array_class = cp.core.core.ndarray
+except:
+  cp_array_class = cp._core.core.ndarray
+Array = Union[np.ndarray, cp_array_class]
 
 
 class FruitFlyNet():
-  """Fruit fly network as described in 'Can a Fruit Fly Learn Word Embeddings?'
+  """Fruit fly network as described in "Can a Fruit Fly Learn Word Embeddings?"
   (arXiv:2101.06887)
 
   Args:
@@ -108,7 +111,7 @@ class FruitFlyNet():
 
 
 def bio_hash_loss(weights: Array, x: Array, probs: Array) -> Array:
-  """Calculates bio-has loss from "Bio-Inspired Hashing for Unsupervised 
+  """Calculates bio-hash loss from "Bio-Inspired Hashing for Unsupervised 
   Similarity Search"
   (arXiv:2001.04907)
 
