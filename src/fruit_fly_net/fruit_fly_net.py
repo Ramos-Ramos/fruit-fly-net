@@ -74,7 +74,7 @@ class FruitFlyNet():
   def state_dict(self) -> Dict[str, Array]:
     """Returns dictionary of key "weights" and the weight array as the value"""
 
-    return {'weights': self.weights}
+    return {'weights': cp.asnumpy(self.weights).copy()}
 
   def load_state_dict(self, state_dict: Dict[str, Array]) -> None:
     """Loads weights
@@ -83,7 +83,10 @@ class FruitFlyNet():
       state_dict: dictionary with key "weights" and weight array as the value
     """
 
+    curr_shape, new_shape = self.weights.shape, state_dict['weights'].shape
+    assert curr_shape == new_shape, f"Incorrect size for `weights`. Expected {curr_shape}, got {new_shape}."
     self.weights = state_dict['weights']
+    self.to('cpu' if self.xp==np else 'gpu')
 
   def eval(self) -> None:
     """Turns off training mode"""
