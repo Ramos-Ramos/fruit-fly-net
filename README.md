@@ -8,6 +8,12 @@ Unofficial Python implementation of [Can a Fruit Fly Learn Word Embeddings?](htt
 pip install git+https://github.com/Ramos-Ramos/fruit-fly-net
 ```
 
+## Demo
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Ramos-Ramos/fruit-fly-net/blob/main/demo/Fruit_Fly_Net_demo_🍄.ipynb)
+
+Check out our Colab demo!
+
 ## Usage
 
 ```python
